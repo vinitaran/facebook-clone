@@ -8,11 +8,14 @@ import ChatIcon from "@material-ui/icons/Chat";
 import StorefrontIcon from "@material-ui/icons/Storefront";
 import VideoLibraryIcon from "@material-ui/icons/VideoLibrary";
 import ExpandMoreOutlinedIcon from "@material-ui/icons/ExpandMoreOutlined";
+import { useStateValue } from './StateProvider';
 
 function Sidebar() {
+    // eslint-disable-next-line
+    const [{ user }, dispatch] = useStateValue();
     return (
         <div className="Sidebar">
-            <SidebarRow src="https://avatars3.githubusercontent.com/u/52027320?s=400&u=c212e0ff27401e9a446cd68d62544b87c3753880&v=4" title="Vinita Rane" />
+            <SidebarRow src={user.photoURL} title={user.displayName} />
             <SidebarRow Icon={LocalHospitalIcon} title="COVID-19 Information Center" />
             <SidebarRow Icon={EmojiFlagsIcon}  title="Pages"/>
             <SidebarRow Icon={PeopleIcon} title="Friends"/>
